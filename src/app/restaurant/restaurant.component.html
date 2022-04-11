@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <td><a *ngIf="authService.isEkaly()" class="btn btn-primary">Ajouter restaurant</a></td>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let restaurant of restaurants">
+                    <tr>
+                        <td>{{restaurant.nom}}</td>
+                        <td>{{restaurant.adresse}}</td>
+                        <td>{{restaurant.img}}</td>
+                        <!-- <td>{{produit.dateCreation | date:'dd/MM/yyyy' }}</td> -->
+                        <td><a *ngIf="authService.isEkaly()" class="btn btn-danger" (click)="supprimerProduit(produit)">Supprimer</a></td>
+                        <td><a *ngIf="authService.isEkaly()" class="btn btn-success" [routerLink]="['/updateProduit',produit.idProduit]">Modifier</a></td>
+                        <td><a *ngIf="authService.isEkaly()" class="btn btn-warning" [routerLink]="['/detail-produit',produit._id]">Détails</a></td>
+                        <td><a *ngIf="authService.isClient()" class="btn btn-primary">Plats</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
